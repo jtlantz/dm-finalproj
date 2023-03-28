@@ -1,0 +1,48 @@
+---
+title: "Project"
+author: "Justyn Lantz"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Mining Project
+
+## Citation
+
+```         
+Hvitfeldt, E., & Silge, J. (2021). Supervised machine learning for text analysis in R. CRC Press.
+```
+
+Since we are using R there is quite a lot of unique syntax, so I will do my best to outline/explain it here.
+
+This contains the packages that we will need for tokenization of our words in our dataset
+
+```{r}
+install.packages("tokenizers")
+install.packages("tidyverse")
+install.packages("tidytext")
+```
+
+Then we need to import those packages
+
+```{r}
+library(tokenizers)
+library(tidyverse)
+library(tidytext)
+```
+
+Load in our project
+
+```{r}
+dataset <- read.csv("../resources/raw-dataset.csv")
+```
+
+```{r}
+
+```
