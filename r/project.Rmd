@@ -17,7 +17,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```         
 Hvitfeldt, E., & Silge, J. (2021). Supervised machine learning for text analysis in R. CRC Press.
+
+https://osf.io/3vds7 -- Fake reviews Dataset
 ```
+
+## Dataset
+
+Our dataset included the following description:
+
+-   The generated fake reviews dataset, containing 20k fake reviews and 20k real product reviews. OR = Original reviews (presumably human created and authentic); CG = Computer-generated fake reviews.
 
 Since we are using R there is quite a lot of unique syntax, so I will do my best to outline/explain it here.
 
@@ -27,6 +35,7 @@ This contains the packages that we will need for tokenization of our words in ou
 install.packages("tokenizers")
 install.packages("tidyverse")
 install.packages("tidytext")
+install.packages("corpus")
 ```
 
 Then we need to import those packages
@@ -35,14 +44,26 @@ Then we need to import those packages
 library(tokenizers)
 library(tidyverse)
 library(tidytext)
+library(corpus)
 ```
 
 Load in our project
 
 ```{r}
-dataset <- read.csv("../resources/raw-dataset.csv")
+df <- read.csv("../resources/raw-dataset.csv")
 ```
 
+### View the dataset head
+
 ```{r}
+head(df)
+```
+
+### Load our words, and tokenize them
+
+This step is necessary for tokenization. We load all of our lines of text into a tibble object, which is just a text vector that allows us to more easily parse each line of text.
+
+```{r}
+textdf = tibble(text = df['text_'])
 
 ```
